@@ -3,8 +3,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Главная страница')
+    template = 'posts/index.html'
+    return render(request, template)
 
-# В урл мы ждем парметр, и нужно его прередать в функцию для использования
-def group_posts(request, any_slug):
-    return HttpResponse(f'Запись постов {any_slug}')
+def group_posts(request, slug):
+    template = 'posts/group_list.html'
+    return render(request, template)
